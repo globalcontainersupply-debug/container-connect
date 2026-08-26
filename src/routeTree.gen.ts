@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContainersIndexRouteImport } from './routes/containers.index'
+import { Route as ContainersSlugRouteImport } from './routes/containers.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +23,39 @@ const ContainersIndexRoute = ContainersIndexRouteImport.update({
   path: '/containers/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContainersSlugRoute = ContainersSlugRouteImport.update({
+  id: '/containers/$slug',
+  path: '/containers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/containers/$slug': typeof ContainersSlugRoute
   '/containers/': typeof ContainersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/containers/$slug': typeof ContainersSlugRoute
   '/containers': typeof ContainersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/containers/$slug': typeof ContainersSlugRoute
   '/containers/': typeof ContainersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/containers/'
+  fullPaths: '/' | '/containers/$slug' | '/containers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/containers'
-  id: '__root__' | '/' | '/containers/'
+  to: '/' | '/containers/$slug' | '/containers'
+  id: '__root__' | '/' | '/containers/$slug' | '/containers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContainersSlugRoute: typeof ContainersSlugRoute
   ContainersIndexRoute: typeof ContainersIndexRoute
 }
 
@@ -65,11 +75,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContainersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/containers/$slug': {
+      id: '/containers/$slug'
+      path: '/containers/$slug'
+      fullPath: '/containers/$slug'
+      preLoaderRoute: typeof ContainersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContainersSlugRoute: ContainersSlugRoute,
   ContainersIndexRoute: ContainersIndexRoute,
 }
 export const routeTree = rootRouteImport
