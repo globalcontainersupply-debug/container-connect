@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as EnquiryReceivedRouteImport } from './routes/enquiry-received'
 import { Route as ContainersIndexRouteImport } from './routes/containers.index'
 import { Route as ContainersSlugRouteImport } from './routes/containers.$slug'
 
@@ -30,6 +31,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnquiryReceivedRoute = EnquiryReceivedRouteImport.update({
+  id: '/enquiry-received',
+  path: '/enquiry-received',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContainersIndexRoute = ContainersIndexRouteImport.update({
   id: '/containers/',
   path: '/containers/',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/enquiry-received': typeof EnquiryReceivedRoute
   '/containers/$slug': typeof ContainersSlugRoute
   '/containers/': typeof ContainersIndexRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/enquiry-received': typeof EnquiryReceivedRoute
   '/containers/$slug': typeof ContainersSlugRoute
   '/containers': typeof ContainersIndexRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/enquiry-received': typeof EnquiryReceivedRoute
   '/containers/$slug': typeof ContainersSlugRoute
   '/containers/': typeof ContainersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cart' | '/checkout' | '/containers/$slug' | '/containers/'
+  fullPaths:
+    | '/'
+    | '/cart'
+    | '/checkout'
+    | '/enquiry-received'
+    | '/containers/$slug'
+    | '/containers/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cart' | '/checkout' | '/containers/$slug' | '/containers'
+  to:
+    | '/'
+    | '/cart'
+    | '/checkout'
+    | '/enquiry-received'
+    | '/containers/$slug'
+    | '/containers'
   id:
     | '__root__'
     | '/'
     | '/cart'
     | '/checkout'
+    | '/enquiry-received'
     | '/containers/$slug'
     | '/containers/'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
+  EnquiryReceivedRoute: typeof EnquiryReceivedRoute
   ContainersSlugRoute: typeof ContainersSlugRoute
   ContainersIndexRoute: typeof ContainersIndexRoute
 }
@@ -108,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/enquiry-received': {
+      id: '/enquiry-received'
+      path: '/enquiry-received'
+      fullPath: '/enquiry-received'
+      preLoaderRoute: typeof EnquiryReceivedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/containers/': {
       id: '/containers/'
       path: '/containers'
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
+  EnquiryReceivedRoute: EnquiryReceivedRoute,
   ContainersSlugRoute: ContainersSlugRoute,
   ContainersIndexRoute: ContainersIndexRoute,
 }
