@@ -14,6 +14,7 @@ import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 import { ConfirmDeleteButton } from "@/components/admin/confirm-delete-button";
+import { storageProxyUrl } from "@/lib/media-url";
 
 export const Route = createFileRoute("/_authenticated/admin/reviews")({
   ssr: false,
@@ -116,8 +117,8 @@ function ReviewsAdminPage() {
       const path = `avatars/${Date.now()}-${file.name}`;
       const { error } = await supabase.storage.from("media").upload(path, file);
       if (error) throw error;
-      const { data: pub } = supabase.storage.from("media").getPublicUrl(path);
-      setForm((f) => ({ ...f, avatar_url: pub.publicUrl }));
+      const publicUrl = storageProxyUrl("media", path);
+      setForm((f) => ({ ...f, avatar_url: publicUrl }));
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Upload failed");
     } finally {
