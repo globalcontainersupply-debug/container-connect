@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TagListField } from "@/components/admin/tag-list-field";
+import { storageProxyUrl } from "@/lib/media-url";
 
 type ProductForm = {
   id?: string;
@@ -244,10 +245,10 @@ export function ProductEditor({ id }: { id?: string }) {
         const path = `${Date.now()}-${file.name}`;
         const { error } = await supabase.storage.from("product-images").upload(path, file);
         if (error) throw error;
-        const { data: pub } = supabase.storage.from("product-images").getPublicUrl(path);
+        const publicUrl = storageProxyUrl("product-images", path);
         setImages((prev) => [
           ...prev,
-          { url: pub.publicUrl, alt_text: "", is_primary: prev.length === 0, sort_order: prev.length },
+          { url: publicUrl, alt_text: "", is_primary: prev.length === 0, sort_order: prev.length },
         ]);
       }
     } catch (e) {

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ConfirmDeleteButton } from "@/components/admin/confirm-delete-button";
+import { storageProxyUrl } from "@/lib/media-url";
 
 export const Route = createFileRoute("/_authenticated/admin/media")({
   ssr: false,
@@ -46,11 +47,11 @@ function MediaAdminPage() {
       const path = `library/${Date.now()}-${file.name}`;
       const { error } = await supabase.storage.from("media").upload(path, file);
       if (error) throw error;
-      const { data: pub } = supabase.storage.from("media").getPublicUrl(path);
+      const publicUrl = storageProxyUrl("media", path);
       const mediaType = file.type.startsWith("video/") ? "video" : "image";
       await save.mutateAsync({
         file_name: file.name,
-        url: pub.publicUrl,
+        url: publicUrl,
         media_type: mediaType,
         alt_text: altText || null,
       });

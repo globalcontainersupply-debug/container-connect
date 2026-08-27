@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { TagListField } from "@/components/admin/tag-list-field";
+import { storageProxyUrl } from "@/lib/media-url";
 
 export const Route = createFileRoute("/_authenticated/admin/blog/$id")({
   ssr: false,
@@ -123,8 +124,8 @@ function BlogEditorPage() {
       const path = `blog/${Date.now()}-${file.name}`;
       const { error } = await supabase.storage.from("media").upload(path, file);
       if (error) throw error;
-      const { data: pub } = supabase.storage.from("media").getPublicUrl(path);
-      setForm((f) => ({ ...f, featured_image_url: pub.publicUrl }));
+      const publicUrl = storageProxyUrl("media", path);
+      setForm((f) => ({ ...f, featured_image_url: publicUrl }));
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Upload failed");
     } finally {
