@@ -56,7 +56,9 @@ function AuthPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-navy-deep px-4 py-16">
       <div className="w-full max-w-sm rounded-sm border border-white/10 bg-navy p-8 text-navy-foreground">
-        <img src="/logo.svg" alt="" className="size-10" width={40} height={40} />
+        <span className="flex size-10 items-center justify-center rounded-sm bg-navy-deep">
+          <span className="font-display text-xl font-bold leading-none text-primary">G</span>
+        </span>
         <h1 className="mt-5 font-display text-2xl font-bold uppercase">Admin sign in</h1>
         <p className="mt-1 text-sm text-navy-foreground/70">{SITE.name} dashboard</p>
 

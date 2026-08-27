@@ -57,7 +57,7 @@ function AdminOverview() {
 
       <div className="mt-10">
         <h2 className="font-display text-xl font-bold uppercase">Recent products</h2>
-        <div className="mt-4 overflow-x-auto rounded-sm border border-border bg-card">
+        <div className="mt-4 overflow-hidden rounded-sm border border-border bg-card">
           <table className="w-full text-sm">
             <thead className="bg-secondary/50 text-left text-xs uppercase tracking-wide text-muted-foreground">
               <tr>

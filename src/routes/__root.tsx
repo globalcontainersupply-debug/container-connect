@@ -101,13 +101,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: SITE.name },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: `${SITE_URL}/images/og-image.png` },
-      { name: "twitter:image", content: `${SITE_URL}/images/og-image.png` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "icon", href: "/logo.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
