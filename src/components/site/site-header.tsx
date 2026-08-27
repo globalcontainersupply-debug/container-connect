@@ -71,9 +71,7 @@ export function SiteHeader() {
       <div className="border-b border-border bg-background/95 backdrop-blur">
         <div className="container-page flex h-16 items-center gap-4">
           <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label={SITE.name}>
-            <span className="flex size-9 items-center justify-center rounded-sm bg-navy text-navy-foreground">
-              <span className="font-display text-lg font-bold leading-none text-primary">G</span>
-            </span>
+            <img src="/logo.svg" alt="" className="size-9" width={36} height={36} />
             <span className="leading-none">
               <span className="block font-display text-lg font-bold uppercase tracking-wide">
                 Global Container
