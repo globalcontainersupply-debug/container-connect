@@ -55,6 +55,7 @@ import { Route as AuthenticatedAdminBlogIdRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAdminProductsIndexRouteImport } from './routes/_authenticated/admin.products.index'
 import { Route as AuthenticatedAdminProductsIdRouteImport } from './routes/_authenticated/admin.products.$id'
 import { Route as AuthenticatedAdminProductsNewRouteImport } from './routes/_authenticated/admin.products.new'
+import { Route as ApiPublicStorageSplatRouteImport } from './routes/api/public/storage.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -295,6 +296,11 @@ const AuthenticatedAdminProductsNewRoute =
     path: '/products/new',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const ApiPublicStorageSplatRoute = ApiPublicStorageSplatRouteImport.update({
+  id: '/api/public/storage/$',
+  path: '/api/public/storage/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -340,6 +346,7 @@ export interface FileRoutesByFullPath {
   '/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
   '/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
   '/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/api/public/storage/$': typeof ApiPublicStorageSplatRoute
   '/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
   '/admin/products/': typeof AuthenticatedAdminProductsIndexRoute
 }
@@ -386,6 +393,7 @@ export interface FileRoutesByTo {
   '/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
   '/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
   '/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/api/public/storage/$': typeof ApiPublicStorageSplatRoute
   '/admin/blog': typeof AuthenticatedAdminBlogIndexRoute
   '/admin/products': typeof AuthenticatedAdminProductsIndexRoute
 }
@@ -435,6 +443,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
   '/_authenticated/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
   '/_authenticated/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/api/public/storage/$': typeof ApiPublicStorageSplatRoute
   '/_authenticated/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
   '/_authenticated/admin/products/': typeof AuthenticatedAdminProductsIndexRoute
 }
@@ -484,6 +493,7 @@ export interface FileRouteTypes {
     | '/admin/blog/$id'
     | '/admin/products/$id'
     | '/admin/products/new'
+    | '/api/public/storage/$'
     | '/admin/blog/'
     | '/admin/products/'
   fileRoutesByTo: FileRoutesByTo
@@ -530,6 +540,7 @@ export interface FileRouteTypes {
     | '/admin/blog/$id'
     | '/admin/products/$id'
     | '/admin/products/new'
+    | '/api/public/storage/$'
     | '/admin/blog'
     | '/admin/products'
   id:
@@ -578,6 +589,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/blog/$id'
     | '/_authenticated/admin/products/$id'
     | '/_authenticated/admin/products/new'
+    | '/api/public/storage/$'
     | '/_authenticated/admin/blog/'
     | '/_authenticated/admin/products/'
   fileRoutesById: FileRoutesById
@@ -612,6 +624,7 @@ export interface RootRouteChildren {
   ContainerSizesIndexRoute: typeof ContainerSizesIndexRoute
   ContainerTypesIndexRoute: typeof ContainerTypesIndexRoute
   ContainersIndexRoute: typeof ContainersIndexRoute
+  ApiPublicStorageSplatRoute: typeof ApiPublicStorageSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -938,6 +951,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminProductsNewRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/api/public/storage/$': {
+      id: '/api/public/storage/$'
+      path: '/api/public/storage/$'
+      fullPath: '/api/public/storage/$'
+      preLoaderRoute: typeof ApiPublicStorageSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1023,6 +1043,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContainerSizesIndexRoute: ContainerSizesIndexRoute,
   ContainerTypesIndexRoute: ContainerTypesIndexRoute,
   ContainersIndexRoute: ContainersIndexRoute,
+  ApiPublicStorageSplatRoute: ApiPublicStorageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
