@@ -10,15 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EnquiryReceivedRouteImport } from './routes/enquiry-received'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as NewContainersRouteImport } from './routes/new-containers'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as UsedContainersRouteImport } from './routes/used-containers'
+import { Route as WorldwideShippingRouteImport } from './routes/worldwide-shipping'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ContainerSizesIndexRouteImport } from './routes/container-sizes.index'
+import { Route as ContainerSizesSlugRouteImport } from './routes/container-sizes.$slug'
+import { Route as ContainerTypesIndexRouteImport } from './routes/container-types.index'
+import { Route as ContainerTypesSlugRouteImport } from './routes/container-types.$slug'
 import { Route as ContainersIndexRouteImport } from './routes/containers.index'
 import { Route as ContainersSlugRouteImport } from './routes/containers.$slug'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminCategoriesRouteImport } from './routes/_authenticated/admin.categories'
+import { Route as AuthenticatedAdminFaqsRouteImport } from './routes/_authenticated/admin.faqs'
+import { Route as AuthenticatedAdminHomeRouteImport } from './routes/_authenticated/admin.home'
+import { Route as AuthenticatedAdminMediaRouteImport } from './routes/_authenticated/admin.media'
+import { Route as AuthenticatedAdminRegionsRouteImport } from './routes/_authenticated/admin.regions'
+import { Route as AuthenticatedAdminReviewsRouteImport } from './routes/_authenticated/admin.reviews'
+import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin.settings'
+import { Route as AuthenticatedAdminSizesRouteImport } from './routes/_authenticated/admin.sizes'
+import { Route as AuthenticatedAdminTypesRouteImport } from './routes/_authenticated/admin.types'
+import { Route as AuthenticatedAdminVideosRouteImport } from './routes/_authenticated/admin.videos'
+import { Route as AuthenticatedAdminBlogIndexRouteImport } from './routes/_authenticated/admin.blog.index'
+import { Route as AuthenticatedAdminBlogIdRouteImport } from './routes/_authenticated/admin.blog.$id'
+import { Route as AuthenticatedAdminProductsIndexRouteImport } from './routes/_authenticated/admin.products.index'
+import { Route as AuthenticatedAdminProductsIdRouteImport } from './routes/_authenticated/admin.products.$id'
+import { Route as AuthenticatedAdminProductsNewRouteImport } from './routes/_authenticated/admin.products.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
@@ -31,9 +90,109 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnquiryReceivedRoute = EnquiryReceivedRouteImport.update({
   id: '/enquiry-received',
   path: '/enquiry-received',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewContainersRoute = NewContainersRouteImport.update({
+  id: '/new-containers',
+  path: '/new-containers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
+  id: '/shipping-policy',
+  path: '/shipping-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsedContainersRoute = UsedContainersRouteImport.update({
+  id: '/used-containers',
+  path: '/used-containers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorldwideShippingRoute = WorldwideShippingRouteImport.update({
+  id: '/worldwide-shipping',
+  path: '/worldwide-shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContainerSizesIndexRoute = ContainerSizesIndexRouteImport.update({
+  id: '/container-sizes/',
+  path: '/container-sizes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContainerSizesSlugRoute = ContainerSizesSlugRouteImport.update({
+  id: '/container-sizes/$slug',
+  path: '/container-sizes/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContainerTypesIndexRoute = ContainerTypesIndexRouteImport.update({
+  id: '/container-types/',
+  path: '/container-types/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContainerTypesSlugRoute = ContainerTypesSlugRouteImport.update({
+  id: '/container-types/$slug',
+  path: '/container-types/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContainersIndexRoute = ContainersIndexRouteImport.update({
@@ -46,65 +205,412 @@ const ContainersSlugRoute = ContainersSlugRouteImport.update({
   path: '/containers/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminCategoriesRoute =
+  AuthenticatedAdminCategoriesRouteImport.update({
+    id: '/categories',
+    path: '/categories',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminFaqsRoute = AuthenticatedAdminFaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminHomeRoute = AuthenticatedAdminHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminMediaRoute = AuthenticatedAdminMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminRegionsRoute =
+  AuthenticatedAdminRegionsRouteImport.update({
+    id: '/regions',
+    path: '/regions',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminReviewsRoute =
+  AuthenticatedAdminReviewsRouteImport.update({
+    id: '/reviews',
+    path: '/reviews',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminSettingsRoute =
+  AuthenticatedAdminSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminSizesRoute = AuthenticatedAdminSizesRouteImport.update({
+  id: '/sizes',
+  path: '/sizes',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminTypesRoute = AuthenticatedAdminTypesRouteImport.update({
+  id: '/types',
+  path: '/types',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminVideosRoute =
+  AuthenticatedAdminVideosRouteImport.update({
+    id: '/videos',
+    path: '/videos',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminBlogIndexRoute =
+  AuthenticatedAdminBlogIndexRouteImport.update({
+    id: '/blog/',
+    path: '/blog/',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminBlogIdRoute =
+  AuthenticatedAdminBlogIdRouteImport.update({
+    id: '/blog/$id',
+    path: '/blog/$id',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminProductsIndexRoute =
+  AuthenticatedAdminProductsIndexRouteImport.update({
+    id: '/products/',
+    path: '/products/',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminProductsIdRoute =
+  AuthenticatedAdminProductsIdRouteImport.update({
+    id: '/products/$id',
+    path: '/products/$id',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminProductsNewRoute =
+  AuthenticatedAdminProductsNewRouteImport.update({
+    id: '/products/new',
+    path: '/products/new',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/about-us': typeof AboutUsRoute
+  '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/industries': typeof IndustriesRoute
+  '/new-containers': typeof NewContainersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRoute
+  '/search': typeof SearchRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/used-containers': typeof UsedContainersRoute
+  '/worldwide-shipping': typeof WorldwideShippingRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/blog/$slug': typeof BlogSlugRoute
+  '/container-sizes/$slug': typeof ContainerSizesSlugRoute
+  '/container-types/$slug': typeof ContainerTypesSlugRoute
   '/containers/$slug': typeof ContainersSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/container-sizes/': typeof ContainerSizesIndexRoute
+  '/container-types/': typeof ContainerTypesIndexRoute
   '/containers/': typeof ContainersIndexRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/admin/home': typeof AuthenticatedAdminHomeRoute
+  '/admin/media': typeof AuthenticatedAdminMediaRoute
+  '/admin/regions': typeof AuthenticatedAdminRegionsRoute
+  '/admin/reviews': typeof AuthenticatedAdminReviewsRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/sizes': typeof AuthenticatedAdminSizesRoute
+  '/admin/types': typeof AuthenticatedAdminTypesRoute
+  '/admin/videos': typeof AuthenticatedAdminVideosRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
+  '/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
+  '/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
+  '/admin/products/': typeof AuthenticatedAdminProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/about-us': typeof AboutUsRoute
+  '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/industries': typeof IndustriesRoute
+  '/new-containers': typeof NewContainersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRoute
+  '/search': typeof SearchRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/used-containers': typeof UsedContainersRoute
+  '/worldwide-shipping': typeof WorldwideShippingRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/container-sizes/$slug': typeof ContainerSizesSlugRoute
+  '/container-types/$slug': typeof ContainerTypesSlugRoute
   '/containers/$slug': typeof ContainersSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/container-sizes': typeof ContainerSizesIndexRoute
+  '/container-types': typeof ContainerTypesIndexRoute
   '/containers': typeof ContainersIndexRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/admin/home': typeof AuthenticatedAdminHomeRoute
+  '/admin/media': typeof AuthenticatedAdminMediaRoute
+  '/admin/regions': typeof AuthenticatedAdminRegionsRoute
+  '/admin/reviews': typeof AuthenticatedAdminReviewsRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/sizes': typeof AuthenticatedAdminSizesRoute
+  '/admin/types': typeof AuthenticatedAdminTypesRoute
+  '/admin/videos': typeof AuthenticatedAdminVideosRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
+  '/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
+  '/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/admin/blog': typeof AuthenticatedAdminBlogIndexRoute
+  '/admin/products': typeof AuthenticatedAdminProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/$': typeof SplatRoute
+  '/about-us': typeof AboutUsRoute
+  '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/industries': typeof IndustriesRoute
+  '/new-containers': typeof NewContainersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRoute
+  '/search': typeof SearchRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/used-containers': typeof UsedContainersRoute
+  '/worldwide-shipping': typeof WorldwideShippingRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/blog/$slug': typeof BlogSlugRoute
+  '/container-sizes/$slug': typeof ContainerSizesSlugRoute
+  '/container-types/$slug': typeof ContainerTypesSlugRoute
   '/containers/$slug': typeof ContainersSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/container-sizes/': typeof ContainerSizesIndexRoute
+  '/container-types/': typeof ContainerTypesIndexRoute
   '/containers/': typeof ContainersIndexRoute
+  '/_authenticated/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/_authenticated/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/_authenticated/admin/home': typeof AuthenticatedAdminHomeRoute
+  '/_authenticated/admin/media': typeof AuthenticatedAdminMediaRoute
+  '/_authenticated/admin/regions': typeof AuthenticatedAdminRegionsRoute
+  '/_authenticated/admin/reviews': typeof AuthenticatedAdminReviewsRoute
+  '/_authenticated/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/_authenticated/admin/sizes': typeof AuthenticatedAdminSizesRoute
+  '/_authenticated/admin/types': typeof AuthenticatedAdminTypesRoute
+  '/_authenticated/admin/videos': typeof AuthenticatedAdminVideosRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/admin/blog/$id': typeof AuthenticatedAdminBlogIdRoute
+  '/_authenticated/admin/products/$id': typeof AuthenticatedAdminProductsIdRoute
+  '/_authenticated/admin/products/new': typeof AuthenticatedAdminProductsNewRoute
+  '/_authenticated/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
+  '/_authenticated/admin/products/': typeof AuthenticatedAdminProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$'
+    | '/about-us'
+    | '/auth'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/enquiry-received'
+    | '/faq'
+    | '/how-it-works'
+    | '/industries'
+    | '/new-containers'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/search'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/used-containers'
+    | '/worldwide-shipping'
+    | '/admin'
+    | '/blog/$slug'
+    | '/container-sizes/$slug'
+    | '/container-types/$slug'
     | '/containers/$slug'
+    | '/blog/'
+    | '/container-sizes/'
+    | '/container-types/'
     | '/containers/'
+    | '/admin/categories'
+    | '/admin/faqs'
+    | '/admin/home'
+    | '/admin/media'
+    | '/admin/regions'
+    | '/admin/reviews'
+    | '/admin/settings'
+    | '/admin/sizes'
+    | '/admin/types'
+    | '/admin/videos'
+    | '/admin/'
+    | '/admin/blog/$id'
+    | '/admin/products/$id'
+    | '/admin/products/new'
+    | '/admin/blog/'
+    | '/admin/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$'
+    | '/about-us'
+    | '/auth'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/enquiry-received'
+    | '/faq'
+    | '/how-it-works'
+    | '/industries'
+    | '/new-containers'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/search'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/used-containers'
+    | '/worldwide-shipping'
+    | '/blog/$slug'
+    | '/container-sizes/$slug'
+    | '/container-types/$slug'
     | '/containers/$slug'
+    | '/blog'
+    | '/container-sizes'
+    | '/container-types'
     | '/containers'
+    | '/admin/categories'
+    | '/admin/faqs'
+    | '/admin/home'
+    | '/admin/media'
+    | '/admin/regions'
+    | '/admin/reviews'
+    | '/admin/settings'
+    | '/admin/sizes'
+    | '/admin/types'
+    | '/admin/videos'
+    | '/admin'
+    | '/admin/blog/$id'
+    | '/admin/products/$id'
+    | '/admin/products/new'
+    | '/admin/blog'
+    | '/admin/products'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/$'
+    | '/about-us'
+    | '/auth'
     | '/cart'
     | '/checkout'
+    | '/contact'
     | '/enquiry-received'
+    | '/faq'
+    | '/how-it-works'
+    | '/industries'
+    | '/new-containers'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/search'
+    | '/shipping-policy'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/used-containers'
+    | '/worldwide-shipping'
+    | '/_authenticated/admin'
+    | '/blog/$slug'
+    | '/container-sizes/$slug'
+    | '/container-types/$slug'
     | '/containers/$slug'
+    | '/blog/'
+    | '/container-sizes/'
+    | '/container-types/'
     | '/containers/'
+    | '/_authenticated/admin/categories'
+    | '/_authenticated/admin/faqs'
+    | '/_authenticated/admin/home'
+    | '/_authenticated/admin/media'
+    | '/_authenticated/admin/regions'
+    | '/_authenticated/admin/reviews'
+    | '/_authenticated/admin/settings'
+    | '/_authenticated/admin/sizes'
+    | '/_authenticated/admin/types'
+    | '/_authenticated/admin/videos'
+    | '/_authenticated/admin/'
+    | '/_authenticated/admin/blog/$id'
+    | '/_authenticated/admin/products/$id'
+    | '/_authenticated/admin/products/new'
+    | '/_authenticated/admin/blog/'
+    | '/_authenticated/admin/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  SplatRoute: typeof SplatRoute
+  AboutUsRoute: typeof AboutUsRoute
+  AuthRoute: typeof AuthRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
   EnquiryReceivedRoute: typeof EnquiryReceivedRoute
+  FaqRoute: typeof FaqRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  IndustriesRoute: typeof IndustriesRoute
+  NewContainersRoute: typeof NewContainersRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ReviewsRoute: typeof ReviewsRoute
+  SearchRoute: typeof SearchRoute
+  ShippingPolicyRoute: typeof ShippingPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
+  UsedContainersRoute: typeof UsedContainersRoute
+  WorldwideShippingRoute: typeof WorldwideShippingRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ContainerSizesSlugRoute: typeof ContainerSizesSlugRoute
+  ContainerTypesSlugRoute: typeof ContainerTypesSlugRoute
   ContainersSlugRoute: typeof ContainersSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ContainerSizesIndexRoute: typeof ContainerSizesIndexRoute
+  ContainerTypesIndexRoute: typeof ContainerTypesIndexRoute
   ContainersIndexRoute: typeof ContainersIndexRoute
 }
 
@@ -115,6 +621,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -131,11 +665,151 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/enquiry-received': {
       id: '/enquiry-received'
       path: '/enquiry-received'
       fullPath: '/enquiry-received'
       preLoaderRoute: typeof EnquiryReceivedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-containers': {
+      id: '/new-containers'
+      path: '/new-containers'
+      fullPath: '/new-containers'
+      preLoaderRoute: typeof NewContainersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-policy': {
+      id: '/shipping-policy'
+      path: '/shipping-policy'
+      fullPath: '/shipping-policy'
+      preLoaderRoute: typeof ShippingPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/used-containers': {
+      id: '/used-containers'
+      path: '/used-containers'
+      fullPath: '/used-containers'
+      preLoaderRoute: typeof UsedContainersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/worldwide-shipping': {
+      id: '/worldwide-shipping'
+      path: '/worldwide-shipping'
+      fullPath: '/worldwide-shipping'
+      preLoaderRoute: typeof WorldwideShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/container-sizes/': {
+      id: '/container-sizes/'
+      path: '/container-sizes'
+      fullPath: '/container-sizes/'
+      preLoaderRoute: typeof ContainerSizesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/container-sizes/$slug': {
+      id: '/container-sizes/$slug'
+      path: '/container-sizes/$slug'
+      fullPath: '/container-sizes/$slug'
+      preLoaderRoute: typeof ContainerSizesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/container-types/': {
+      id: '/container-types/'
+      path: '/container-types'
+      fullPath: '/container-types/'
+      preLoaderRoute: typeof ContainerTypesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/container-types/$slug': {
+      id: '/container-types/$slug'
+      path: '/container-types/$slug'
+      fullPath: '/container-types/$slug'
+      preLoaderRoute: typeof ContainerTypesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/containers/': {
@@ -152,15 +826,202 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContainersSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/categories': {
+      id: '/_authenticated/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AuthenticatedAdminCategoriesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/faqs': {
+      id: '/_authenticated/admin/faqs'
+      path: '/faqs'
+      fullPath: '/admin/faqs'
+      preLoaderRoute: typeof AuthenticatedAdminFaqsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/home': {
+      id: '/_authenticated/admin/home'
+      path: '/home'
+      fullPath: '/admin/home'
+      preLoaderRoute: typeof AuthenticatedAdminHomeRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/media': {
+      id: '/_authenticated/admin/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AuthenticatedAdminMediaRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/regions': {
+      id: '/_authenticated/admin/regions'
+      path: '/regions'
+      fullPath: '/admin/regions'
+      preLoaderRoute: typeof AuthenticatedAdminRegionsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/reviews': {
+      id: '/_authenticated/admin/reviews'
+      path: '/reviews'
+      fullPath: '/admin/reviews'
+      preLoaderRoute: typeof AuthenticatedAdminReviewsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/settings': {
+      id: '/_authenticated/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/sizes': {
+      id: '/_authenticated/admin/sizes'
+      path: '/sizes'
+      fullPath: '/admin/sizes'
+      preLoaderRoute: typeof AuthenticatedAdminSizesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/types': {
+      id: '/_authenticated/admin/types'
+      path: '/types'
+      fullPath: '/admin/types'
+      preLoaderRoute: typeof AuthenticatedAdminTypesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/videos': {
+      id: '/_authenticated/admin/videos'
+      path: '/videos'
+      fullPath: '/admin/videos'
+      preLoaderRoute: typeof AuthenticatedAdminVideosRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/blog/': {
+      id: '/_authenticated/admin/blog/'
+      path: '/blog'
+      fullPath: '/admin/blog/'
+      preLoaderRoute: typeof AuthenticatedAdminBlogIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/blog/$id': {
+      id: '/_authenticated/admin/blog/$id'
+      path: '/blog/$id'
+      fullPath: '/admin/blog/$id'
+      preLoaderRoute: typeof AuthenticatedAdminBlogIdRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/products/': {
+      id: '/_authenticated/admin/products/'
+      path: '/products'
+      fullPath: '/admin/products/'
+      preLoaderRoute: typeof AuthenticatedAdminProductsIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/products/$id': {
+      id: '/_authenticated/admin/products/$id'
+      path: '/products/$id'
+      fullPath: '/admin/products/$id'
+      preLoaderRoute: typeof AuthenticatedAdminProductsIdRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/products/new': {
+      id: '/_authenticated/admin/products/new'
+      path: '/products/new'
+      fullPath: '/admin/products/new'
+      preLoaderRoute: typeof AuthenticatedAdminProductsNewRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminCategoriesRoute: typeof AuthenticatedAdminCategoriesRoute
+  AuthenticatedAdminFaqsRoute: typeof AuthenticatedAdminFaqsRoute
+  AuthenticatedAdminHomeRoute: typeof AuthenticatedAdminHomeRoute
+  AuthenticatedAdminMediaRoute: typeof AuthenticatedAdminMediaRoute
+  AuthenticatedAdminRegionsRoute: typeof AuthenticatedAdminRegionsRoute
+  AuthenticatedAdminReviewsRoute: typeof AuthenticatedAdminReviewsRoute
+  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
+  AuthenticatedAdminSizesRoute: typeof AuthenticatedAdminSizesRoute
+  AuthenticatedAdminTypesRoute: typeof AuthenticatedAdminTypesRoute
+  AuthenticatedAdminVideosRoute: typeof AuthenticatedAdminVideosRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+  AuthenticatedAdminBlogIdRoute: typeof AuthenticatedAdminBlogIdRoute
+  AuthenticatedAdminProductsIdRoute: typeof AuthenticatedAdminProductsIdRoute
+  AuthenticatedAdminProductsNewRoute: typeof AuthenticatedAdminProductsNewRoute
+  AuthenticatedAdminBlogIndexRoute: typeof AuthenticatedAdminBlogIndexRoute
+  AuthenticatedAdminProductsIndexRoute: typeof AuthenticatedAdminProductsIndexRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminCategoriesRoute: AuthenticatedAdminCategoriesRoute,
+  AuthenticatedAdminFaqsRoute: AuthenticatedAdminFaqsRoute,
+  AuthenticatedAdminHomeRoute: AuthenticatedAdminHomeRoute,
+  AuthenticatedAdminMediaRoute: AuthenticatedAdminMediaRoute,
+  AuthenticatedAdminRegionsRoute: AuthenticatedAdminRegionsRoute,
+  AuthenticatedAdminReviewsRoute: AuthenticatedAdminReviewsRoute,
+  AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
+  AuthenticatedAdminSizesRoute: AuthenticatedAdminSizesRoute,
+  AuthenticatedAdminTypesRoute: AuthenticatedAdminTypesRoute,
+  AuthenticatedAdminVideosRoute: AuthenticatedAdminVideosRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+  AuthenticatedAdminBlogIdRoute: AuthenticatedAdminBlogIdRoute,
+  AuthenticatedAdminProductsIdRoute: AuthenticatedAdminProductsIdRoute,
+  AuthenticatedAdminProductsNewRoute: AuthenticatedAdminProductsNewRoute,
+  AuthenticatedAdminBlogIndexRoute: AuthenticatedAdminBlogIndexRoute,
+  AuthenticatedAdminProductsIndexRoute: AuthenticatedAdminProductsIndexRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  SplatRoute: SplatRoute,
+  AboutUsRoute: AboutUsRoute,
+  AuthRoute: AuthRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
   EnquiryReceivedRoute: EnquiryReceivedRoute,
+  FaqRoute: FaqRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  IndustriesRoute: IndustriesRoute,
+  NewContainersRoute: NewContainersRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ReviewsRoute: ReviewsRoute,
+  SearchRoute: SearchRoute,
+  ShippingPolicyRoute: ShippingPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
+  UsedContainersRoute: UsedContainersRoute,
+  WorldwideShippingRoute: WorldwideShippingRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ContainerSizesSlugRoute: ContainerSizesSlugRoute,
+  ContainerTypesSlugRoute: ContainerTypesSlugRoute,
   ContainersSlugRoute: ContainersSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ContainerSizesIndexRoute: ContainerSizesIndexRoute,
+  ContainerTypesIndexRoute: ContainerTypesIndexRoute,
   ContainersIndexRoute: ContainersIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -154,6 +154,7 @@ export function SiteHeader() {
                   {[
                     { to: "/new-containers", label: "New Containers" },
                     { to: "/used-containers", label: "Used Containers" },
+                    { to: "/industries", label: "Industries" },
                     { to: "/how-it-works", label: "How It Works" },
                     { to: "/reviews", label: "Reviews" },
                     { to: "/faq", label: "FAQ" },

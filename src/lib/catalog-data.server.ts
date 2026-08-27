@@ -12,6 +12,7 @@ export type ReviewRow = Tables["reviews"]["Row"];
 export type FaqRow = Tables["faqs"]["Row"];
 export type RegionRow = Tables["shipping_regions"]["Row"];
 export type BlogRow = Tables["blog_posts"]["Row"];
+export type MediaRow = Tables["media"]["Row"];
 export type VideoRow = Tables["videos"]["Row"];
 export type SettingsRow = Tables["site_settings"]["Row"];
 export type HomeRow = Tables["home_content"]["Row"];

@@ -56,6 +56,7 @@ export function SiteFooter() {
             {[
               { to: "/about-us", label: "About Us" },
               { to: "/how-it-works", label: "How It Works" },
+              { to: "/industries", label: "Industries" },
               { to: "/worldwide-shipping", label: "Worldwide Shipping" },
               { to: "/reviews", label: "Customer Reviews" },
               { to: "/faq", label: "FAQ" },
@@ -112,7 +113,7 @@ export function SiteFooter() {
             © {year} {SITE.name}. All rights reserved.
           </p>
           <nav className="flex flex-wrap gap-5" aria-label="Legal">
-            <Link to="/privacy" className="hover:text-primary">
+            <Link to="/privacy-policy" className="hover:text-primary">
               Privacy Policy
             </Link>
             <Link to="/terms" className="hover:text-primary">
