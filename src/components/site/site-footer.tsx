@@ -14,9 +14,7 @@ export function SiteFooter() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-sm bg-navy">
-              <span className="font-display text-lg font-bold leading-none text-primary">G</span>
-            </span>
+            <img src="/logo.svg" alt="" className="size-9" width={36} height={36} />
             <span className="font-display text-lg font-bold uppercase tracking-wide">
               Global Container Supply
             </span>
