@@ -6,11 +6,14 @@ import { pageMeta } from "@/lib/seo";
 import { formatDate } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 
-type BlogSearch = { category?: string };
+type BlogSearch = { category?: string | undefined };
 
 export const Route = createFileRoute("/blog/")({
   validateSearch: (search: Record<string, unknown>): BlogSearch => ({
-    category: typeof search.category === "string" && search.category ? search.category : undefined,
+    category:
+      typeof search["category"] === "string" && search["category"]
+        ? search["category"]
+        : undefined,
   }),
   head: () =>
     pageMeta({
@@ -25,7 +28,7 @@ export const Route = createFileRoute("/blog/")({
 function BlogIndexPage() {
   const { data: posts } = useSuspenseQuery(postsQuery);
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/blog" });
+  const navigate = useNavigate({ from: "/blog/" });
 
   const categories = useMemo(
     () => Array.from(new Set(posts.map((p) => p.category).filter((c): c is string => Boolean(c)))),

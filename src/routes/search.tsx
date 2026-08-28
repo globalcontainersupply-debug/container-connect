@@ -7,11 +7,11 @@ import { ProductCard } from "@/components/site/product-card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-type SearchParams = { q?: string };
+type SearchParams = { q?: string | undefined };
 
 export const Route = createFileRoute("/search")({
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
-    q: typeof search.q === "string" && search.q ? search.q : undefined,
+    q: typeof search["q"] === "string" && search["q"] ? search["q"] : undefined,
   }),
   head: () =>
     pageMeta({

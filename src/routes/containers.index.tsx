@@ -16,26 +16,28 @@ import {
 } from "@/components/ui/select";
 
 type CatalogSearch = {
-  q?: string;
-  type?: string;
-  size?: string;
-  condition?: string;
-  availability?: string;
-  sort?: string;
+  q?: string | undefined;
+  type?: string | undefined;
+  size?: string | undefined;
+  condition?: string | undefined;
+  availability?: string | undefined;
+  sort?: string | undefined;
 };
 
 export const Route = createFileRoute("/containers/")({
   validateSearch: (search: Record<string, unknown>): CatalogSearch => ({
-    q: typeof search.q === "string" && search.q ? search.q : undefined,
-    type: typeof search.type === "string" && search.type ? search.type : undefined,
-    size: typeof search.size === "string" && search.size ? search.size : undefined,
+    q: typeof search["q"] === "string" && search["q"] ? search["q"] : undefined,
+    type: typeof search["type"] === "string" && search["type"] ? search["type"] : undefined,
+    size: typeof search["size"] === "string" && search["size"] ? search["size"] : undefined,
     condition:
-      typeof search.condition === "string" && search.condition ? search.condition : undefined,
-    availability:
-      typeof search.availability === "string" && search.availability
-        ? search.availability
+      typeof search["condition"] === "string" && search["condition"]
+        ? search["condition"]
         : undefined,
-    sort: typeof search.sort === "string" && search.sort ? search.sort : undefined,
+    availability:
+      typeof search["availability"] === "string" && search["availability"]
+        ? search["availability"]
+        : undefined,
+    sort: typeof search["sort"] === "string" && search["sort"] ? search["sort"] : undefined,
   }),
   head: () =>
     pageMeta({
@@ -51,7 +53,7 @@ export const Route = createFileRoute("/containers/")({
 function CatalogPage() {
   const { data } = useSuspenseQuery(catalogQuery);
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/containers" });
+  const navigate = useNavigate({ from: "/containers/" });
 
   const setParam = (key: keyof CatalogSearch, value: string) =>
     navigate({
