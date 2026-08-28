@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { createPublicClient } from "@/lib/supabase-public.server";
 
 const ALLOWED_BUCKETS = new Set(["media", "videos", "product-images"]);
 
@@ -25,8 +26,11 @@ export const Route = createFileRoute("/api/public/storage/$")({
           return new Response("Not found", { status: 404 });
         }
 
-        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const { data, error } = await supabaseAdmin.storage.from(bucket).download(objectPath);
+        // Use the publishable server client so this route also works on external
+        // Cloudflare deployments, where the Lovable-only service key is absent.
+        // The existing storage SELECT policy grants anonymous read access only.
+        const supabasePublic = createPublicClient();
+        const { data, error } = await supabasePublic.storage.from(bucket).download(objectPath);
 
         if (error || !data) return new Response("Not found", { status: 404 });
 
