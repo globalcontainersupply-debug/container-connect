@@ -6,7 +6,7 @@ type MetaInput = {
   title: string;
   description: string;
   path?: string;
-  image?: string;
+  image?: string | undefined;
   type?: string;
 };
 
