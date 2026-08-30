@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { siteChromeQuery } from "@/lib/queries";
-import { SITE } from "@/lib/site";
+import { SITE, whatsappUrl } from "@/lib/site";
 
 export function SiteFooter() {
   const { data } = useQuery(siteChromeQuery);
@@ -83,9 +83,17 @@ export function SiteFooter() {
             </li>
             {settings?.phone ? (
               <li className="flex gap-2.5">
-                <Phone className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-                <a href={`tel:${settings.phone.replace(/[^\d+]/g, "")}`} className="hover:text-primary">
+                <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                <a href={whatsappUrl(settings.phone)} target="_blank" rel="noreferrer" className="hover:text-primary">
                   {settings.phone}
+                </a>
+              </li>
+            ) : null}
+            {settings?.whatsapp_secondary ? (
+              <li className="flex gap-2.5">
+                <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                <a href={whatsappUrl(settings.whatsapp_secondary)} target="_blank" rel="noreferrer" className="hover:text-primary">
+                  {settings.whatsapp_secondary}
                 </a>
               </li>
             ) : null}

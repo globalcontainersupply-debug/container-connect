@@ -701,6 +701,7 @@ const settingsSchema = z.object({
   company_name: z.string().min(1),
   company_email: z.string().email(),
   phone: z.string().nullable(),
+  whatsapp_secondary: z.string().nullable(),
   address: z.string().nullable(),
   business_hours: z.string().nullable(),
   logo_url: z.string().nullable(),

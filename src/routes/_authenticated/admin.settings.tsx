@@ -17,6 +17,7 @@ type FormState = {
   company_name: string;
   company_email: string;
   phone: string;
+  whatsapp_secondary: string;
   address: string;
   business_hours: string;
   logo_url: string;
@@ -34,6 +35,7 @@ function emptyForm(): FormState {
     company_name: "",
     company_email: "",
     phone: "",
+    whatsapp_secondary: "",
     address: "",
     business_hours: "",
     logo_url: "",
@@ -59,6 +61,7 @@ function SettingsAdminPage() {
       company_name: data.company_name,
       company_email: data.company_email,
       phone: data.phone ?? "",
+      whatsapp_secondary: data.whatsapp_secondary ?? "",
       address: data.address ?? "",
       business_hours: data.business_hours ?? "",
       logo_url: data.logo_url ?? "",
@@ -86,6 +89,7 @@ function SettingsAdminPage() {
           company_name: form.company_name,
           company_email: form.company_email,
           phone: form.phone || null,
+          whatsapp_secondary: form.whatsapp_secondary || null,
           address: form.address || null,
           business_hours: form.business_hours || null,
           logo_url: form.logo_url || null,
@@ -122,8 +126,12 @@ function SettingsAdminPage() {
             <Input id="s-email" type="email" value={form.company_email} onChange={(e) => setForm((f) => ({ ...f, company_email: e.target.value }))} />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="s-phone">Phone</Label>
+            <Label htmlFor="s-phone">WhatsApp number (main)</Label>
             <Input id="s-phone" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="s-whatsapp-2">WhatsApp number (secondary)</Label>
+            <Input id="s-whatsapp-2" value={form.whatsapp_secondary} onChange={(e) => setForm((f) => ({ ...f, whatsapp_secondary: e.target.value }))} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="s-currency">Currency</Label>

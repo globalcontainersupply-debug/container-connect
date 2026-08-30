@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { Menu, Search, ShoppingCart, X, Mail, Phone, ChevronDown } from "lucide-react";
+import { Menu, Search, ShoppingCart, X, Mail, MessageCircle, ChevronDown } from "lucide-react";
 import { siteChromeQuery } from "@/lib/queries";
 import { useCart } from "@/context/cart";
-import { SITE } from "@/lib/site";
+import { SITE, whatsappUrl } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -57,11 +57,24 @@ export function SiteHeader() {
             </a>
             {settings?.phone ? (
               <a
-                href={`tel:${settings.phone.replace(/[^\d+]/g, "")}`}
+                href={whatsappUrl(settings.phone)}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-navy-foreground/85 transition-colors hover:text-primary"
               >
-                <Phone className="size-3.5" aria-hidden="true" />
+                <MessageCircle className="size-3.5" aria-hidden="true" />
                 {settings.phone}
+              </a>
+            ) : null}
+            {settings?.whatsapp_secondary ? (
+              <a
+                href={whatsappUrl(settings.whatsapp_secondary)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-navy-foreground/85 transition-colors hover:text-primary"
+              >
+                <MessageCircle className="size-3.5" aria-hidden="true" />
+                {settings.whatsapp_secondary}
               </a>
             ) : null}
           </div>

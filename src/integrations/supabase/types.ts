@@ -655,6 +655,7 @@ export type Database = {
           phone: string | null
           social_links: Json
           updated_at: string
+          whatsapp_secondary: string | null
         }
         Insert: {
           address?: string | null
@@ -673,6 +674,7 @@ export type Database = {
           phone?: string | null
           social_links?: Json
           updated_at?: string
+          whatsapp_secondary?: string | null
         }
         Update: {
           address?: string | null
@@ -691,6 +693,7 @@ export type Database = {
           phone?: string | null
           social_links?: Json
           updated_at?: string
+          whatsapp_secondary?: string | null
         }
         Relationships: []
       }

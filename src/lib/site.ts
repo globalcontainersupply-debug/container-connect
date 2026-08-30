@@ -22,6 +22,10 @@ export function formatPrice(
   }).format(price);
 }
 
+export function whatsappUrl(number: string) {
+  return `https://wa.me/${number.replace(/\D/g, "")}`;
+}
+
 export function conditionLabel(condition: string) {
   return condition === "new" ? "New (one-trip)" : "Used";
 }
