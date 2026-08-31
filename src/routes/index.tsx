@@ -31,7 +31,7 @@ const benefitIcons = [ShieldCheck, Globe2, Truck, Boxes];
 function HomePage() {
   const { data } = useSuspenseQuery(homeQuery);
   const { home, products, types, sizes, reviews, posts, videos } = data;
-  const featured = products.filter((p) => p.featured).slice(0, 6);
+const featured = products.filter((p) => p.featured);
   const list = featured.length ? featured : products.slice(0, 6);
   const benefits = Array.isArray(home?.benefits) ? (home.benefits as { title: string; body: string }[]) : [];
   const featuredVideo = videos.find((v) => v.homepage_featured) ?? null;
