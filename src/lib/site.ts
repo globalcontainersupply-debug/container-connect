@@ -26,6 +26,10 @@ export function whatsappUrl(number: string) {
   return `https://wa.me/${number.replace(/\D/g, "")}`;
 }
 
+export function lineUrl(number: string) {
+  return `https://line.me/ti/p/~${number.replace(/\D/g, "")}`;
+}
+
 export function conditionLabel(condition: string) {
   return condition === "new" ? "New (one-trip)" : "Used";
 }

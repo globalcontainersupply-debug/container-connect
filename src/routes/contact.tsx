@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Mail, MapPin, MessageCircle, Clock, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, MessageCircle, MessageSquareText, Clock, CheckCircle2 } from "lucide-react";
 import { siteChromeQuery } from "@/lib/queries";
 import { pageMeta } from "@/lib/seo";
-import { FORMSUBMIT_ENDPOINT, SITE, whatsappUrl } from "@/lib/site";
+import { FORMSUBMIT_ENDPOINT, SITE, whatsappUrl, lineUrl } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -105,6 +105,14 @@ function ContactPage() {
                     <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
                     <a href={whatsappUrl(settings.whatsapp_secondary)} target="_blank" rel="noreferrer" className="hover:text-primary">
                       {settings.whatsapp_secondary} (WhatsApp)
+                    </a>
+                  </li>
+                ) : null}
+                {settings?.line_number ? (
+                  <li className="flex gap-2.5">
+                    <MessageSquareText className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
+                    <a href={lineUrl(settings.line_number)} target="_blank" rel="noreferrer" className="hover:text-primary">
+                      {settings.line_number} (LINE)
                     </a>
                   </li>
                 ) : null}

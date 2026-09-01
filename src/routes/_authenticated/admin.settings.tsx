@@ -18,6 +18,7 @@ type FormState = {
   company_email: string;
   phone: string;
   whatsapp_secondary: string;
+  line_number: string;
   address: string;
   business_hours: string;
   logo_url: string;
@@ -36,6 +37,7 @@ function emptyForm(): FormState {
     company_email: "",
     phone: "",
     whatsapp_secondary: "",
+    line_number: "",
     address: "",
     business_hours: "",
     logo_url: "",
@@ -62,6 +64,7 @@ function SettingsAdminPage() {
       company_email: data.company_email,
       phone: data.phone ?? "",
       whatsapp_secondary: data.whatsapp_secondary ?? "",
+      line_number: data.line_number ?? "",
       address: data.address ?? "",
       business_hours: data.business_hours ?? "",
       logo_url: data.logo_url ?? "",
@@ -90,6 +93,7 @@ function SettingsAdminPage() {
           company_email: form.company_email,
           phone: form.phone || null,
           whatsapp_secondary: form.whatsapp_secondary || null,
+          line_number: form.line_number || null,
           address: form.address || null,
           business_hours: form.business_hours || null,
           logo_url: form.logo_url || null,
@@ -132,6 +136,10 @@ function SettingsAdminPage() {
           <div className="space-y-2">
             <Label htmlFor="s-whatsapp-2">WhatsApp number (secondary)</Label>
             <Input id="s-whatsapp-2" value={form.whatsapp_secondary} onChange={(e) => setForm((f) => ({ ...f, whatsapp_secondary: e.target.value }))} />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="s-line">LINE number</Label>
+            <Input id="s-line" value={form.line_number} onChange={(e) => setForm((f) => ({ ...f, line_number: e.target.value }))} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="s-currency">Currency</Label>

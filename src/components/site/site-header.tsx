@@ -18,6 +18,7 @@ const mainNav = [
   { to: "/worldwide-shipping", label: "Shipping" },
   { to: "/about-us", label: "About" },
   { to: "/blog", label: "Blog" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

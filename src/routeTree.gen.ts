@@ -19,6 +19,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EnquiryReceivedRouteImport } from './routes/enquiry-received'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as NewContainersRouteImport } from './routes/new-containers'
@@ -104,6 +105,11 @@ const EnquiryReceivedRoute = EnquiryReceivedRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -312,6 +318,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
@@ -360,6 +367,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
@@ -409,6 +417,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
+  '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
@@ -459,6 +468,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/enquiry-received'
     | '/faq'
+    | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
@@ -507,6 +517,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/enquiry-received'
     | '/faq'
+    | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
@@ -555,6 +566,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/enquiry-received'
     | '/faq'
+    | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
@@ -605,6 +617,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EnquiryReceivedRoute: typeof EnquiryReceivedRoute
   FaqRoute: typeof FaqRoute
+  GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
   IndustriesRoute: typeof IndustriesRoute
   NewContainersRoute: typeof NewContainersRoute
@@ -697,6 +710,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -1024,6 +1044,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EnquiryReceivedRoute: EnquiryReceivedRoute,
   FaqRoute: FaqRoute,
+  GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
   IndustriesRoute: IndustriesRoute,
   NewContainersRoute: NewContainersRoute,

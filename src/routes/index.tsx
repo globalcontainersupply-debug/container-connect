@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Anchor, Boxes, Globe2, ShieldCheck, Ship, Star, Truck } from "lucide-react";
-import { homeQuery } from "@/lib/queries";
+import { homeQuery, mediaQuery } from "@/lib/queries";
 import { pageMeta } from "@/lib/seo";
 import { ProductCard } from "@/components/site/product-card";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,13 @@ import {
 } from "@/components/ui/accordion";
 import { formatDate } from "@/lib/site";
 import { CountUp, Reveal, useParallax } from "@/components/site/reveal";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -22,7 +29,11 @@ export const Route = createFileRoute("/")({
         "Global Container Supply sells new and used ISO shipping containers — dry, high cube, refrigerated, open top, flat rack and tank units — with delivery to 90+ countries.",
       path: "/",
     }),
-  loader: ({ context }) => context.queryClient.ensureQueryData(homeQuery),
+  loader: ({ context }) =>
+    Promise.all([
+      context.queryClient.ensureQueryData(homeQuery),
+      context.queryClient.ensureQueryData(mediaQuery),
+    ]),
   component: HomePage,
 });
 
@@ -30,7 +41,9 @@ const benefitIcons = [ShieldCheck, Globe2, Truck, Boxes];
 
 function HomePage() {
   const { data } = useSuspenseQuery(homeQuery);
+  const { data: media } = useSuspenseQuery(mediaQuery);
   const { home, products, types, sizes, reviews, posts, videos } = data;
+  const galleryImages = media.filter((m) => m.media_type === "image").slice(0, 12);
 const featured = products.filter((p) => p.featured);
   const list = featured.length ? featured : products.slice(0, 6);
   const benefits = Array.isArray(home?.benefits) ? (home.benefits as { title: string; body: string }[]) : [];
@@ -147,6 +160,45 @@ const featured = products.filter((p) => p.featured);
           ))}
         </div>
       </section>
+
+      {galleryImages.length ? (
+        <section className="container-page pb-20">
+          <Reveal variant="up">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow text-primary">Gallery</p>
+                <h2 className="mt-2 font-display text-4xl font-bold uppercase">From our yard</h2>
+              </div>
+              <Button asChild variant="outline">
+                <Link to="/gallery">View full gallery</Link>
+              </Button>
+            </div>
+          </Reveal>
+          <Reveal variant="fade" delay={100}>
+            <Carousel opts={{ align: "start", loop: true }} className="mt-10">
+              <CarouselContent>
+                {galleryImages.map((item) => (
+                  <CarouselItem key={item.id} className="basis-1/2 sm:basis-1/3 lg:basis-1/4">
+                    <Link
+                      to="/gallery"
+                      className="block aspect-square overflow-hidden rounded-sm border border-border bg-muted"
+                    >
+                      <img
+                        src={item.url}
+                        alt={item.alt_text ?? ""}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          </Reveal>
+        </section>
+      ) : null}
 
       <section className="bg-surface py-20">
         <div className="container-page">

@@ -43,3 +43,8 @@ export const getPost = createServerFn({ method: "GET" })
     const { fetchPost } = await import("./catalog-data.server");
     return fetchPost(data.slug);
   });
+
+export const getMedia = createServerFn({ method: "GET" }).handler(async () => {
+  const { fetchMedia } = await import("./catalog-data.server");
+  return fetchMedia();
+});

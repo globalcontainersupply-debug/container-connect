@@ -2,6 +2,7 @@ import { queryOptions } from "@tanstack/react-query";
 import {
   getCatalog,
   getHome,
+  getMedia,
   getPost,
   getPosts,
   getProduct,
@@ -52,3 +53,8 @@ export const postQuery = (slug: string) =>
     queryKey: ["post", slug],
     queryFn: () => getPost({ data: { slug } }),
   });
+
+export const mediaQuery = queryOptions({
+  queryKey: ["media"],
+  queryFn: () => getMedia(),
+});

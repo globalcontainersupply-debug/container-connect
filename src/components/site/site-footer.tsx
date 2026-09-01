@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { Mail, MapPin, MessageCircle, MessageSquareText, Clock } from "lucide-react";
 import { siteChromeQuery } from "@/lib/queries";
-import { SITE, whatsappUrl } from "@/lib/site";
+import { SITE, whatsappUrl, lineUrl } from "@/lib/site";
 
 export function SiteFooter() {
   const { data } = useQuery(siteChromeQuery);
@@ -57,6 +57,7 @@ export function SiteFooter() {
               { to: "/industries", label: "Industries" },
               { to: "/worldwide-shipping", label: "Worldwide Shipping" },
               { to: "/reviews", label: "Customer Reviews" },
+              { to: "/gallery", label: "Gallery" },
               { to: "/faq", label: "FAQ" },
               { to: "/blog", label: "Blog" },
               { to: "/contact", label: "Contact" },
@@ -94,6 +95,14 @@ export function SiteFooter() {
                 <MessageCircle className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
                 <a href={whatsappUrl(settings.whatsapp_secondary)} target="_blank" rel="noreferrer" className="hover:text-primary">
                   {settings.whatsapp_secondary}
+                </a>
+              </li>
+            ) : null}
+            {settings?.line_number ? (
+              <li className="flex gap-2.5">
+                <MessageSquareText className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                <a href={lineUrl(settings.line_number)} target="_blank" rel="noreferrer" className="hover:text-primary">
+                  {settings.line_number} (LINE)
                 </a>
               </li>
             ) : null}

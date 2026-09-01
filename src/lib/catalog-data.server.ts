@@ -224,6 +224,12 @@ export async function fetchPost(slug: string) {
   return (data as BlogRow | null) ?? null;
 }
 
+export async function fetchMedia() {
+  const db = createPublicClient();
+  const { data } = await db.from("media").select("*").order("created_at", { ascending: false });
+  return (data ?? []) as MediaRow[];
+}
+
 export async function fetchSitemapEntries() {
   const db = createPublicClient();
   const [products, types, sizes, posts] = await Promise.all([

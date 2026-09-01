@@ -651,6 +651,7 @@ export type Database = {
           favicon_url: string | null
           footer_text: string | null
           id: number
+          line_number: string | null
           logo_url: string | null
           phone: string | null
           social_links: Json
@@ -670,6 +671,7 @@ export type Database = {
           favicon_url?: string | null
           footer_text?: string | null
           id?: number
+          line_number?: string | null
           logo_url?: string | null
           phone?: string | null
           social_links?: Json
@@ -689,6 +691,7 @@ export type Database = {
           favicon_url?: string | null
           footer_text?: string | null
           id?: number
+          line_number?: string | null
           logo_url?: string | null
           phone?: string | null
           social_links?: Json
