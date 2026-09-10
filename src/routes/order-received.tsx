@@ -3,34 +3,34 @@ import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/enquiry-received")({
+export const Route = createFileRoute("/order-received")({
   validateSearch: (search: Record<string, unknown>) => ({
     ref: typeof search["ref"] === "string" ? search["ref"] : undefined,
   }),
   head: () => ({
     ...pageMeta({
-      title: "Enquiry Received",
-      description: "Thanks for your container enquiry — our sales team will be in touch shortly.",
-      path: "/enquiry-received",
+      title: "Order Received",
+      description: "Thanks for your container order — our sales team will be in touch shortly.",
+      path: "/order-received",
     }),
     meta: [
       ...pageMeta({
-        title: "Enquiry Received",
-        description: "Thanks for your container enquiry — our sales team will be in touch shortly.",
+        title: "Order Received",
+        description: "Thanks for your container order — our sales team will be in touch shortly.",
       }).meta,
       { name: "robots", content: "noindex" },
     ],
   }),
-  component: EnquiryReceived,
+  component: OrderReceived,
 });
 
-function EnquiryReceived() {
+function OrderReceived() {
   const { ref } = Route.useSearch();
   return (
     <div className="container mx-auto flex min-h-[60vh] max-w-2xl flex-col items-center justify-center px-4 py-16 text-center">
       <p className="eyebrow text-primary">Thank you</p>
       <h1 className="mt-3 font-display text-3xl font-bold uppercase md:text-4xl">
-        Enquiry received
+        Order received
       </h1>
       <p className="mt-3 text-muted-foreground">
         Our sales team has your request and will reply with pricing, availability and delivery

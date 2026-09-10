@@ -19,9 +19,9 @@ import {
 export const Route = createFileRoute("/checkout")({
   head: () =>
     pageMeta({
-      title: "Request a Container Quote",
+      title: "Place a Container Order",
       description:
-        "Send your container enquiry to our sales team. Tell us your delivery location and we'll come back with pricing and lead times.",
+        "Place your container order with our sales team. Tell us your delivery location and we'll come back with pricing and lead times.",
       path: "/checkout",
     }),
   component: CheckoutPage,
@@ -60,7 +60,7 @@ function CheckoutPage() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `Container enquiry ${reference} — ${data.get("name")}`,
+          _subject: `Container order ${reference} — ${data.get("name")}`,
           _template: "table",
           Reference: reference,
           Name: data.get("name"),
@@ -79,9 +79,9 @@ function CheckoutPage() {
       });
       if (!response.ok) throw new Error("Submission failed");
       clear();
-      navigate({ to: "/enquiry-received", search: { ref: reference } });
+      navigate({ to: "/order-received", search: { ref: reference } });
     } catch {
-      toast.error("We couldn't send your enquiry. Please email " + SITE.email);
+      toast.error("We couldn't place your order. Please email " + SITE.email);
     } finally {
       setSubmitting(false);
     }
@@ -89,7 +89,7 @@ function CheckoutPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="font-display text-3xl font-bold uppercase md:text-4xl">Request a quote</h1>
+      <h1 className="font-display text-3xl font-bold uppercase md:text-4xl">Place your order</h1>
       <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
         Share your delivery details and our team will respond with pricing, availability and lead
         times for the units on your list.
@@ -160,7 +160,7 @@ function CheckoutPage() {
             <Textarea id="message" name="message" rows={5} placeholder="Timelines, modifications, quantities…" />
           </div>
           <Button type="submit" size="lg" disabled={submitting}>
-            {submitting ? "Sending…" : "Send enquiry"}
+            {submitting ? "Sending…" : "Place order"}
           </Button>
         </form>
 
@@ -168,7 +168,7 @@ function CheckoutPage() {
           <h2 className="font-display text-xl font-bold uppercase">Your list</h2>
           {items.length === 0 ? (
             <p className="mt-3 text-sm text-muted-foreground">
-              No containers selected yet. You can still send a general enquiry, or{" "}
+              No containers selected yet. You can still place a general order, or{" "}
               <Link to="/containers" className="text-primary underline">
                 browse the catalogue
               </Link>

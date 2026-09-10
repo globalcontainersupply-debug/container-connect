@@ -39,7 +39,7 @@ function ContactPage() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `Contact form: ${formData.get("subject") || "General enquiry"} — ${formData.get("name")}`,
+          _subject: `Contact form: ${formData.get("subject") || "General order"} — ${formData.get("name")}`,
           _template: "table",
           Name: formData.get("name"),
           Email: formData.get("email"),
@@ -169,7 +169,7 @@ function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" name="subject" placeholder="e.g. Pricing enquiry" />
+                    <Input id="subject" name="subject" placeholder="e.g. Pricing order" />
                   </div>
                 </div>
                 <div className="space-y-2">

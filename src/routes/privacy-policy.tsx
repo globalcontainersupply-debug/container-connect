@@ -31,9 +31,9 @@ function PrivacyPolicyPage() {
             Information we collect
           </h2>
           <p className="mt-2">
-            When you submit an enquiry or contact form, we collect the details you provide —
+            When you place an order or submit a contact form, we collect the details you provide —
             typically your name, email address, phone number, company, country and any message
-            content. We do not require an account to browse the catalogue or send an enquiry.
+            content. We do not require an account to browse the catalogue or place an order.
           </p>
         </section>
         <section>
@@ -51,7 +51,7 @@ function PrivacyPolicyPage() {
             Third-party services
           </h2>
           <p className="mt-2">
-            Enquiry and contact forms on this site are delivered via a third-party form processing
+            Order and contact forms on this site are delivered via a third-party form processing
             service. Submitting a form means your message content is transmitted through that
             service in order to reach our sales team.
           </p>
@@ -61,9 +61,9 @@ function PrivacyPolicyPage() {
             Cookies and local storage
           </h2>
           <p className="mt-2">
-            Your enquiry list (cart) is stored in your browser's local storage so it persists
+            Your order list (cart) is stored in your browser's local storage so it persists
             between visits. This data stays on your device and is not shared with us until you
-            submit an enquiry.
+            place an order.
           </p>
         </section>
         <section>

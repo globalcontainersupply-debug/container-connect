@@ -17,12 +17,12 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EnquiryReceivedRouteImport } from './routes/enquiry-received'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as NewContainersRouteImport } from './routes/new-containers'
+import { Route as OrderReceivedRouteImport } from './routes/order-received'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as SearchRouteImport } from './routes/search'
@@ -97,11 +97,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnquiryReceivedRoute = EnquiryReceivedRouteImport.update({
-  id: '/enquiry-received',
-  path: '/enquiry-received',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -125,6 +120,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const NewContainersRoute = NewContainersRouteImport.update({
   id: '/new-containers',
   path: '/new-containers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderReceivedRoute = OrderReceivedRouteImport.update({
+  id: '/order-received',
+  path: '/order-received',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -316,12 +316,12 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
+  '/order-received': typeof OrderReceivedRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/search': typeof SearchRoute
@@ -365,12 +365,12 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
+  '/order-received': typeof OrderReceivedRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/search': typeof SearchRoute
@@ -415,12 +415,12 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/enquiry-received': typeof EnquiryReceivedRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/new-containers': typeof NewContainersRoute
+  '/order-received': typeof OrderReceivedRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRoute
   '/search': typeof SearchRoute
@@ -466,12 +466,12 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
-    | '/enquiry-received'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
+    | '/order-received'
     | '/privacy-policy'
     | '/reviews'
     | '/search'
@@ -515,12 +515,12 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
-    | '/enquiry-received'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
+    | '/order-received'
     | '/privacy-policy'
     | '/reviews'
     | '/search'
@@ -564,12 +564,12 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/contact'
-    | '/enquiry-received'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/new-containers'
+    | '/order-received'
     | '/privacy-policy'
     | '/reviews'
     | '/search'
@@ -615,12 +615,12 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
-  EnquiryReceivedRoute: typeof EnquiryReceivedRoute
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
   IndustriesRoute: typeof IndustriesRoute
   NewContainersRoute: typeof NewContainersRoute
+  OrderReceivedRoute: typeof OrderReceivedRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReviewsRoute: typeof ReviewsRoute
   SearchRoute: typeof SearchRoute
@@ -698,13 +698,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/enquiry-received': {
-      id: '/enquiry-received'
-      path: '/enquiry-received'
-      fullPath: '/enquiry-received'
-      preLoaderRoute: typeof EnquiryReceivedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -738,6 +731,13 @@ declare module '@tanstack/react-router' {
       path: '/new-containers'
       fullPath: '/new-containers'
       preLoaderRoute: typeof NewContainersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-received': {
+      id: '/order-received'
+      path: '/order-received'
+      fullPath: '/order-received'
+      preLoaderRoute: typeof OrderReceivedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -1042,12 +1042,12 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
-  EnquiryReceivedRoute: EnquiryReceivedRoute,
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
   IndustriesRoute: IndustriesRoute,
   NewContainersRoute: NewContainersRoute,
+  OrderReceivedRoute: OrderReceivedRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReviewsRoute: ReviewsRoute,
   SearchRoute: SearchRoute,

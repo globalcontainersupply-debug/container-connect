@@ -8,7 +8,7 @@ export const Route = createFileRoute("/how-it-works")({
   head: () =>
     pageMeta({
       title: "How It Works",
-      description: `The five-step process for buying a shipping container from ${SITE.name}, from enquiry to delivery.`,
+      description: `The five-step process for buying a shipping container from ${SITE.name}, from order to delivery.`,
       path: "/how-it-works",
     }),
   component: HowItWorksPage,
@@ -18,7 +18,7 @@ const steps = [
   {
     icon: MessageSquare,
     title: "1. Enquire",
-    body: "Browse the catalogue or tell us what you need — type, size, condition and quantity. Add units to your list and submit an enquiry.",
+    body: "Browse the catalogue or tell us what you need — type, size, condition and quantity. Add units to your list and place an order.",
   },
   {
     icon: ClipboardList,
@@ -61,7 +61,7 @@ function HowItWorksPage() {
           How it works
         </h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          Buying a container from {SITE.name} is a five-step process from first enquiry to
+          Buying a container from {SITE.name} is a five-step process from your first order to
           delivery at your door.
         </p>
 
@@ -79,7 +79,7 @@ function HowItWorksPage() {
 
         <div className="mt-12 flex flex-wrap gap-3">
           <Button asChild size="lg">
-            <Link to="/contact">Start your enquiry</Link>
+            <Link to="/contact">Place your order</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
             <Link to="/containers">Browse containers</Link>

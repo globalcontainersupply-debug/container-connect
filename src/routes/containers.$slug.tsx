@@ -188,13 +188,13 @@ function ProductPage() {
                   },
                   qty,
                 );
-                toast.success("Added to your enquiry list");
+                toast.success("Added to your order list");
               }}
             >
-              Add to enquiry
+              Add to order
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/checkout">Request a quote</Link>
+              <Link to="/checkout">Place order</Link>
             </Button>
           </div>
 

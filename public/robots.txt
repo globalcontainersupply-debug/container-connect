@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin
-Disallow: /enquiry-received
+Disallow: /order-received
 
 Sitemap: https://globalcontainersupply.com/sitemap.xml

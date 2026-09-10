@@ -308,8 +308,8 @@ const featured = products.filter((p) => p.featured);
         </Reveal>
         <ol className="mt-10 grid gap-6 md:grid-cols-4">
           {[
-            { t: "Choose your unit", d: "Filter by type, size and condition, then add to your enquiry." },
-            { t: "Send the enquiry", d: "Tell us your delivery city and timeline." },
+            { t: "Choose your unit", d: "Filter by type, size and condition, then add to your order." },
+            { t: "Place your order", d: "Tell us your delivery city and timeline." },
             { t: "Receive a quote", d: "We confirm availability, price and freight." },
             { t: "Delivery", d: "We arrange haulage or port collection." },
           ].map((s, i) => (
@@ -449,7 +449,7 @@ const featured = products.filter((p) => p.featured);
               },
               {
                 q: "How do I get a price?",
-                a: "Add units to your enquiry and submit the form — we reply with a full quote including freight.",
+                a: "Add units to your order and submit the form — we reply with a full quote including freight.",
               },
             ].map((f) => (
               <AccordionItem key={f.q} value={f.q}>
