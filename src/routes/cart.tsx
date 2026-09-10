@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/cart")({
   head: () =>
     pageMeta({
-      title: "Your Enquiry List",
+      title: "Your Order List",
       description:
-        "Review the shipping containers on your enquiry list before requesting a tailored quote with delivery pricing.",
+        "Review the shipping containers on your order list before placing an order with delivery pricing.",
       path: "/cart",
     }),
   component: CartPage,
@@ -20,7 +20,7 @@ function CartPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="font-display text-3xl font-bold uppercase md:text-4xl">Your enquiry list</h1>
+      <h1 className="font-display text-3xl font-bold uppercase md:text-4xl">Your order list</h1>
       <p className="mt-2 text-sm text-muted-foreground">
         Add as many units as you need — we&apos;ll reply with a single consolidated quote.
       </p>
@@ -116,7 +116,7 @@ function CartPage() {
               </p>
             </dl>
             <Button asChild className="mt-6 w-full" size="lg">
-              <Link to="/checkout">Request quote</Link>
+              <Link to="/checkout">Place order</Link>
             </Button>
             <Button asChild variant="outline" className="mt-3 w-full">
               <Link to="/containers">Continue browsing</Link>

@@ -33,7 +33,7 @@ const values = [
   {
     icon: Users,
     title: "Direct sales team",
-    body: "You deal directly with our team from enquiry to delivery — no anonymous marketplace, no middlemen.",
+    body: "You deal directly with our team from order to delivery — no anonymous marketplace, no middlemen.",
   },
 ];
 

@@ -27,7 +27,7 @@ function TermsPage() {
 
       <div className="mt-8 space-y-8 text-sm leading-relaxed text-muted-foreground">
         <section>
-          <h2 className="font-display text-xl font-bold uppercase text-foreground">Enquiries and quotes</h2>
+          <h2 className="font-display text-xl font-bold uppercase text-foreground">Orders and quotes</h2>
           <p className="mt-2">
             Prices shown on the website are indicative and subject to confirmation. A binding
             price is only agreed once we issue a written quotation covering the specific unit,
@@ -38,7 +38,7 @@ function TermsPage() {
           <h2 className="font-display text-xl font-bold uppercase text-foreground">Availability</h2>
           <p className="mt-2">
             Container stock is sourced from depots and can sell or move between locations. We
-            confirm availability at the time your enquiry is processed and will tell you promptly
+            confirm availability at the time your order is processed and will tell you promptly
             if a unit is no longer available.
           </p>
         </section>

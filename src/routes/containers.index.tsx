@@ -94,7 +94,7 @@ function CatalogPage() {
       <h1 className="mt-4 font-display text-5xl font-bold uppercase">Shipping containers</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         Inspected new and used units ready for export. Filter by type, size, condition and
-        availability, then add what you need to your enquiry.
+        availability, then add what you need to your order.
       </p>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[260px_1fr]">
