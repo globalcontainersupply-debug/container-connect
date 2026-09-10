@@ -39,6 +39,7 @@ function CheckoutPage() {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
   const [contactMethod, setContactMethod] = useState("email");
+  const [paymentMethod, setPaymentMethod] = useState("wire");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -70,6 +71,7 @@ function CheckoutPage() {
           City: data.get("city"),
           "Delivery location": data.get("delivery"),
           "Preferred contact": contactMethod,
+          "Preferred payment method": paymentMethod,
           Message: data.get("message"),
           Items: lines || "No items selected",
           "Listed total": formatPrice(subtotal, "fixed", "USD"),
@@ -135,6 +137,21 @@ function CheckoutPage() {
                 <SelectItem value="email">Email</SelectItem>
                 <SelectItem value="phone">Phone</SelectItem>
                 <SelectItem value="whatsapp">WhatsApp</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="payment-method">Preferred payment method</Label>
+            <Select value={paymentMethod} onValueChange={setPaymentMethod}>
+              <SelectTrigger id="payment-method">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="cashapp">CashApp</SelectItem>
+                <SelectItem value="zelle">Zelle</SelectItem>
+                <SelectItem value="wire">Wire transfer</SelectItem>
+                <SelectItem value="applepay">Apple Pay</SelectItem>
+                <SelectItem value="crypto">Cryptocurrency</SelectItem>
               </SelectContent>
             </Select>
           </div>
